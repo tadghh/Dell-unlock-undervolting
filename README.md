@@ -14,14 +14,14 @@ If you follow the instructions correctly there is no chance of bricking your lap
 Step 1. Extracting the BIOS from the installer
 
 * Copy the Dell BIOS update tool to the directory containing Dell PFS Extract 
-![Step 1](link)
+![Step 1](https://github.com/tadghh/Dell-unlock-undervolting/blob/main/Pictures/step1pt1.PNG)
 * Open CMD and cd to the directory containing Dell PFS Extract
 ![Step 2](link)
 * Enter this into CMD "Dell_PFS_Extract.exe (Directory to the Dell BIOS update exe)"	(Note: if the directory contatins spaces add quotes around it (ex."C:/Dir/Thank you dell/")
 ![Step 3](link)
 * A new folder will appear in the Dell PFD Extract directory containing your extracted BIOS
 
-Step 2. Finding the Overclocking lock(CPU Voltage lock) Address 
+Step 2. Finding the Overclocking lock (CPU Voltage lock) Address 
 
 * Open UEFITool click file, open new image file. Navigate to the new folder created in the Dell PFD Extract directory, select System BIOS with BIOS guard and click open.
 ![Step 2 pt 1](link)
@@ -47,4 +47,4 @@ Step 4. Unlocking voltage control
 ![Step 3 pt 3](link)
 * Boot to this usb and enter "setup_var_3 "variable you got earlier" 0x00 (In my case "setup_var_3 0x789 0x00")
 
-* Type "halt" and unplug the USB
+* Type "halt" and unplug the USB and reboot your computer
