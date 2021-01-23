@@ -27,7 +27,7 @@ Step 2. Finding the Overclocking lock (CPU Voltage lock) Address
 * Hit CRTL+F and switch to text search. Type Overclocking Lock and hit enter. UEFITool should show "Unicode Text Overclocking Lock in setup/PE32..." Double click on this entry.
 ![Step 2 pt 2](https://github.com/tadghh/Dell-unlock-undervolting/blob/main/Pictures/step2pt2.PNG)
 * Right click on the entry UEFITool brings you to. Click extract as is.
- 
+ ![Step 2 pt 3](https://github.com/tadghh/Dell-unlock-undervolting/blob/main/Pictures/step2pt3.PNG)
 Step 3. Universal IFR Extractor
 
 * Open Universal IFR Extractor and navigate to the file you extracted from the previous step open this, click extract.
