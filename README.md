@@ -1,9 +1,10 @@
 # Dell-unlock-undervolting
 A guide to unlock voltage control on Dell laptops above BIOS version 1.6.1
+Undervoltiong was locked away to mitigate the intel plundervolt vulnerability
 # Disclaimer
-If you follow the instructions correctly there is little chance of bricking your laptop. I will not take responsibilty if you brick your laptop. (Note: *You can clear CMOS by holding the power button for 30s on XPS laptops*)
+If you follow the instructions correctly there is little chance of bricking your laptop. I will not take responsibility if you brick your laptop. (Note: *You can clear CMOS by holding the power button for 30s on XPS laptops*)
 
-# Requierments
+# Requirements
 * Universal IFR Extractor [Link](https://github.com/LongSoft/Universal-IFR-Extractor/releases/tag/v0.3.6)
 * Dell PFS Extract [Link](https://github.com/platomav/BIOSUtilities/releases/tag/DPBE-v4.6)
 * UEFITool [Link](https://github.com/LongSoft/UEFITool/releases)
@@ -16,7 +17,7 @@ Step 1. Extracting the BIOS from the installer
 * Copy the Dell BIOS update tool to the directory containing Dell PFS Extract 
 ![Step 1](https://github.com/tadghh/Dell-unlock-undervolting/blob/main/Pictures/step1pt1.PNG)
 * Open CMD and cd to the directory containing Dell PFS Extract
-* Enter this into CMD "Dell_PFS_Extract.exe (Directory to the Dell BIOS update exe)"	(Note: if the directory contatins spaces add quotes around it (ex."C:/Dir/Thank you dell/")
+* Enter this into CMD "Dell_PFS_Extract.exe (Directory to the Dell BIOS update exe)"	(Note: if the directory contains spaces add quotes around it (ex."C:/Dir/Thank you dell/")
 ![Step 2](https://github.com/tadghh/Dell-unlock-undervolting/blob/main/Pictures/step1pt2.PNG)
 * A new folder will appear in the Dell PFD Extract directory containing your extracted BIOS
 
@@ -40,4 +41,5 @@ Step 4. Unlocking voltage control
 * Make a folder called "EFI" and within that a folder called "BOOT"
 * Rename modGRUBShell.efi to bootx64.efi and place it in "BOOT"
 * Boot to this usb and enter "setup_var_3 "variable you got earlier" 0x00 (In my case "setup_var_3 0x789 0x00")
+* Some laptops require manaul boot device entry to appear in the boot list
 * Type "halt" and unplug the USB and reboot your computer
