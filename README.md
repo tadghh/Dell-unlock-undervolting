@@ -5,8 +5,8 @@ Undervoltiong was locked away to mitigate the intel plundervolt vulnerability
 If you follow the instructions correctly there is little chance of bricking your laptop. I will not take responsibility if you brick your laptop. (Note: *You can clear CMOS by holding the power button for 30s on XPS laptops*)
 
 # Requirements
-* Universal IFR Extractor [Link](https://github.com/LongSoft/Universal-IFR-Extractor/releases/tag/v0.3.6)
-* Dell PFS Extract [Link](https://github.com/platomav/BIOSUtilities/releases/tag/DPBE-v4.6)
+* Universal IRFE Extractor [Link](https://github.com/LongSoft/Universal-IFR-Extractor/releases)
+* Dell PFS Extract [Link](https://github.com/platomav/BIOSUtilities/releases)
 * UEFITool [Link](https://github.com/LongSoft/UEFITool/releases)
 * The latest BIOS installer for your laptop 
 * modGrubShell EFI [Link](https://github.com/datasone/grub-mod-setup_var/releases/tag/1.1)
@@ -29,11 +29,11 @@ Step 2. Finding the Overclocking lock (CPU Voltage lock) Address
 ![Step 2 pt 2](https://github.com/tadghh/Dell-unlock-undervolting/blob/main/Pictures/step2pt2.PNG)
 * Right click on the entry UEFITool brings you to. Click extract as is.
  ![Step 2 pt 3](https://github.com/tadghh/Dell-unlock-undervolting/blob/main/Pictures/step2pt3.PNG)
-Step 3. Universal IFR Extractor
+Step 3. Universal IRFE Extractor
 
-* Open Universal IFR Extractor and navigate to the file you extracted from the previous step open this, click extract.
+* Open Universal IRFE Extractor and navigate to the file you extracted from the previous step open this, click extract.
 * Open the text document that Universal IFR Extractor returned. Search for Overclocking Lock
-* Copy down the variable mentioned beside "Setting: Overclocking Lock". In my case "0x789"
+* Copy down the variable mentioned beside "Overclocking Lock". In my case "0x789"
 ![Step 3 pt 1](https://github.com/tadghh/Dell-unlock-undervolting/blob/main/Pictures/step3pt1.PNG)
 Step 4. Unlocking voltage control
 
