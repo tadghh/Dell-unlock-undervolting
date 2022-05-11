@@ -1,6 +1,19 @@
-# Dell-unlock-undervolting
+# Supported Models
+
+- XPS
+  7590
+
+- Vostro 
+  5471
+
+Most likely any model that has a K series skew CPU
+
+*If you are able to make it work on a model not already listed please crease a issue with your devices model*
+
+# Dell unlock Undervolting
 A guide to unlock voltage control on Dell laptops above BIOS version 1.6.1
 Undervoltiong was locked away to mitigate the intel plundervolt vulnerability
+
 # Disclaimer
 If you follow the instructions correctly there is little chance of bricking your laptop. I will not take responsibility if you brick your laptop. (Note: *You can clear CMOS by holding the power button for 30s on XPS laptops*)
 
