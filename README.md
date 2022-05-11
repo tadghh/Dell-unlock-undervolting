@@ -4,7 +4,7 @@
   - 7590
 
 - Vostro 
-  - 5471
+  - 5471 (https://github.com/Lyceris-chan)
 
 Most likely any model that has a K series skew CPU
 
