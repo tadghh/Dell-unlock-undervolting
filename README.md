@@ -11,8 +11,8 @@ Most likely any model that has a K series skew CPU
 *If you are able to make it work on a model not already listed please create a issue with your devices model*
 
 # Dell unlock Undervolting
-A guide to unlock voltage control on Dell laptops above BIOS version 1.6.1
-Undervoltiong was locked away to mitigate the intel plundervolt vulnerability
+A guide to unlock voltage control on Dell laptops above BIOS version 1.6.1,
+Undervoltiong was locked away to prevent the Intel plundervolt vulnerability (CVE-2019-11157)
 
 # Disclaimer
 If you follow the instructions correctly there is little chance of bricking your laptop. I will not take responsibility if you brick your laptop. (Note: *You can clear CMOS by holding the power button for 30s on XPS laptops*)
