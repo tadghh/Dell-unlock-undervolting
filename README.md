@@ -1,14 +1,14 @@
 # Supported Models
 
 - XPS
-  7590
+  - 7590
 
 - Vostro 
-  5471
+  - 5471
 
 Most likely any model that has a K series skew CPU
 
-*If you are able to make it work on a model not already listed please crease a issue with your devices model*
+*If you are able to make it work on a model not already listed please create a issue with your devices model*
 
 # Dell unlock Undervolting
 A guide to unlock voltage control on Dell laptops above BIOS version 1.6.1
