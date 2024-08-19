@@ -40,7 +40,7 @@ There is an automated script below...
 
 ---
 
-# Setup {#Setup}
+# Setup 
 
 Download links are alongside the `required items` list. A PowerShell script has been included to setup everything.
 
@@ -101,7 +101,7 @@ python .\dell_PFS_Extract.py -i ../bios_extract_dir
 3. An `extract` folder will be created in the input (-i) folder
 4. You will find a bin file in one of the folders, its filename will contain `System BIOS`
 
-# Step 1. Alt Extracting the BIOS {#Step-1.-Alt-Extracting-the-BIOS}
+# Step 1. Alt Extracting the BIOS 
 
 1. Open the installer, accept the TOS
 2. Select "Extract Only"
@@ -112,7 +112,7 @@ python .\dell_PFS_Extract.py -i ../bios_extract_dir
     1. Make sure to change `UEFITool` to open any file type
     2. This option is at the bottom right in the open file dialog
 
-# Step 2. Extracting PE32 Body {#Step-2.-Extracting-PE32-Body}
+# Step 2. Extracting PE32 Body 
 
 1. Open `UEFITool` click file, open new image file. Navigate to the extract folder, open the `.bin` file mentioned previously.
 2. At the top click Action -> Search.
@@ -123,7 +123,7 @@ python .\dell_PFS_Extract.py -i ../bios_extract_dir
     1. Right click on it and select `Extract as is`
     2. Save the file as is
 
-# Step 3. Universal IRFE Extractor {#Step-3.-Universal-IRFE-Extractor}
+# Step 3. Universal IRFE Extractor 
 
 1. Open IRFE Extractor, click the `..`
     1. Navigate to the file you saved in the previous step
@@ -140,7 +140,7 @@ python .\dell_PFS_Extract.py -i ../bios_extract_dir
 
     - In my case `0x789`
 
-# Step 4. Unlocking Voltage Control {#Step-4.-Unlocking-Voltage-Control}
+# Step 4. Unlocking Voltage Control
 
 1. Format a USB with a `FAT32` partition
 2. At the root of the USB create a `EFI` folder
