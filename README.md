@@ -24,7 +24,7 @@ This guide walks through the process of re-enabling voltage control on Dell/Leno
 
 Modifying the incorrect EFI offset could brick your computer. Please do some research and make sure you have recovery methods.
 
-# Required Tools {#Required-Tools}
+# Required Tools 
 
 There is an automated script below...
 
