@@ -1,58 +1,172 @@
-# Supported Models
+## Supported Models
 
 - XPS
-  - 7590
+    - 7590
+- Vostro
+    - 5471 ( https://github.com/Lyceris-chan )
 
-- Vostro 
-  - 5471 (https://github.com/Lyceris-chan)
+### ✔️ Compatibility
 
-Most likely any model that has a K series skew CPU
+This guide should work with any laptop model that has a K series/unlocked CPU as an optional upgrade.
+The following will work (H, HK, K)
+Untested (T, P, U)
+Doubtful any 12th gen or newer would work
 
-*If you are able to make it work on a model not already listed please create a issue with your devices model*
+### 📝 Note
 
-# Dell unlock Undervolting
-A guide to unlock voltage control on Dell laptops above BIOS version 1.6.1,
-Undervoltiong was locked away to prevent the Intel plundervolt vulnerability (CVE-2019-11157)
+If you are able to successfully unlock voltage control please make a pull request [here](https://github.com/tadghh/Dell-unlock-undervolting) adding your devices series/model to this list. 
 
-# Disclaimer
-If you follow the instructions correctly there is little chance of bricking your laptop. I will not take responsibility if you brick your laptop. (Note: *You can clear CMOS by holding the power button for 30s on XPS laptops*)
+# Dell/Lenovo Unlocking Voltage Control
 
-# Requirements
-* Universal IRFE Extractor [Link](https://github.com/LongSoft/Universal-IFR-Extractor/releases)
-* Dell PFS Extract [Link](https://github.com/platomav/BIOSUtilities/releases)
-* UEFITool [Link](https://github.com/LongSoft/UEFITool/releases)
-* The latest BIOS installer for your laptop 
-* modGrubShell EFI [Link](https://github.com/datasone/grub-mod-setup_var/releases/tag/1.1)
-----
+This guide walks through the process of re-enabling voltage control on Dell/Lenovo laptops. Voltage control was 'removed' to prevent the plundervolt vulnerability (CVE-2019-11157). Even though Dell took way voltage control from the user, the exploit can still be taken advantage of because the variable controlling it was not made read only. This guide goes over rewriting the variable to restore the ability to undervolt/overvolt your CPU.
 
-Step 1. Extracting the BIOS from the installer
+### ⚠️ WARNING
 
-* Copy the Dell BIOS update tool to the directory containing Dell PFS Extract 
-![Step 1](https://github.com/tadghh/Dell-unlock-undervolting/blob/main/Pictures/step1pt1.PNG)
-* Open CMD and cd to the directory containing Dell PFS Extract
-* Enter this into CMD "Dell_PFS_Extract.exe (Directory to the Dell BIOS update exe)"	(Note: if the directory contains spaces add quotes around it (ex."C:/Dir/Thank you dell/")
-![Step 2](https://github.com/tadghh/Dell-unlock-undervolting/blob/main/Pictures/step1pt2.PNG)
-* A new folder will appear in the Dell PFD Extract directory containing your extracted BIOS
+Modifying the incorrect EFI offset could brick your computer. Please do some research and make sure you have recovery methods.
 
-Step 2. Finding the Overclocking lock (CPU Voltage lock) Address 
+# Required Tools {#Required-Tools}
 
-* Open UEFITool click file, open new image file. Navigate to the new folder created in the Dell PFD Extract directory, select System BIOS with BIOS guard and click open.
-![Step 2 pt 1](https://github.com/tadghh/Dell-unlock-undervolting/blob/main/Pictures/step2pt1.PNG)
-* Hit CRTL+F and switch to text search. Type Overclocking Lock and hit enter. UEFITool should show "Unicode Text Overclocking Lock in setup/PE32..." Double click on this entry.
-![Step 2 pt 2](https://github.com/tadghh/Dell-unlock-undervolting/blob/main/Pictures/step2pt2.PNG)
-* Right click on the entry UEFITool brings you to. Click extract as is.
- ![Step 2 pt 3](https://github.com/tadghh/Dell-unlock-undervolting/blob/main/Pictures/step2pt3.PNG)
-Step 3. Universal IRFE Extractor
+There is an automated script below...
 
-* Open Universal IRFE Extractor and navigate to the file you extracted from the previous step open this, click extract.
-* Open the text document that Universal IFR Extractor returned. Search for Overclocking Lock
-* Copy down the variable mentioned beside "Overclocking Lock". In my case "0x789"
-![Step 3 pt 1](https://github.com/tadghh/Dell-unlock-undervolting/blob/main/Pictures/step3pt1.PNG)
-Step 4. Unlocking voltage control
+- Universal IRFE Extractor [Link](https://github.com/LongSoft/Universal-IFR-Extractor/releases/tag/v0.3.6)
+    - VCRedist 2013 x86 [link](https://www.microsoft.com/en-us/download/details.aspx?id=40784)
+- BIOS Utilities [Link](https://github.com/platomav/BIOSUtilities/tree/main)
+    - Python 3.1X (10,11,12)
+    - Make sure Python is included in $env:PATH
+- UEFITool [Link](https://github.com/LongSoft/UEFITool/releases/latest)
+- Your computers BIOS update utility (usually found on the laptops support page)
+- modGrubShell EFI [Link](https://github.com/datasone/grub-mod-setup_var/releases/tag/1.1)
+- USB with at least 1GB of storage
 
-* Format a USB to FAT32
-* Make a folder called "EFI" and within that a folder called "BOOT"
-* Rename modGRUBShell.efi to bootx64.efi and place it in "BOOT"
-* Boot to this usb and enter "setup_var_3 "variable you got earlier" 0x00 (In my case "setup_var_3 0x789 0x00")
-* Some laptops require manaul boot device entry to appear in the boot list
-* Type "halt" and unplug the USB and reboot your computer
+---
+
+# Setup {#Setup}
+
+Download links are alongside the `required items` list. A PowerShell script has been included to setup everything.
+
+### ❗ IMPORTANT
+
+The below commands require PowerShell 7, otherwise you can manually download the files.
+
+## ⚙️ Auto Setup
+
+The following script will setup everything for you, just execute it in PowerShell
+
+```powershell
+mkdir C:\Users\$Env:UserName\Downloads\undervolting-tools;
+Set-location C:\Users\$Env:UserName\Downloads\undervolting-tools;
+
+## Download UEFI Tool, req: PS 7
+[System.IO.Compression.ZipFile]::ExtractToDirectory([System.IO.MemoryStream]::new((Invoke-WebRequest -Uri "https://github.com/LongSoft/UEFITool/releases/download/A68/UEFITool_NE_A68_win32.zip").Content), $PWD);
+
+## Modded grub shell
+curl -LO https://github.com/datasone/grub-mod-setup_var/releases/download/1.1/modGRUBShell.efi;
+
+## Bios utils
+curl -L https://github.com/platomav/BIOSUtilities/archive/refs/heads/main.zip --output - | tar -xf - -C .;
+
+## IRFE, req: PS 7
+[System.IO.Compression.ZipFile]::ExtractToDirectory([System.IO.MemoryStream]::new((Invoke-WebRequest -Uri "https://github.com/LongSoft/Universal-IFR-Extractor/releases/download/v0.3.6/IRFExtractor_0.3.6_win.zip").Content), $PWD);
+
+## Install deps for IRFE, req: winget
+winget install -e --id Microsoft.VCRedist.2013.x86;
+```
+
+## 🐍 Python Setup
+
+- Install Python 3.12 from the official [website](https://www.python.org/downloads/release/python-3124/)
+
+## 🔧 Acquiring your laptops BIOS
+
+- Usually located on the support page along with drivers
+    - Look for category labeled BIOS or Firmware
+    - Example https://www.dell.com/support/home/en-ca/product-support/product/xps-15-7590-laptop/drivers
+- Most likely an executable file, rarely it could be in the format of an image/rom
+
+# Step 1. Extracting the BIOS {#Step-1.-Extracting-the-BIOS }
+
+1. Create a folder in your CWD called `bios_extract_dir`
+    - Move the BIOS update/installer you downloaded into this folder
+2. Using PowerShell cd into the location containing `BIOSUtilities`
+    - Execute the following command
+    - If the command fails `Error: This is not a supported input!` go to Step 1. Alt
+
+```powershell
+## using ../ as we are inside the folder and the extract dir should have been created in the parent folder
+## it is expected that you have cd into the folder containing the bios utilities
+## -i specifies the input folder
+python .\dell_PFS_Extract.py -i ../bios_extract_dir
+```
+
+3. An `extract` folder will be created in the input (-i) folder
+4. You will find a bin file in one of the folders, its filename will contain `System BIOS`
+
+# Step 1. Alt Extracting the BIOS {#Step-1.-Alt-Extracting-the-BIOS}
+
+1. Open the installer, accept the TOS
+2. Select "Extract Only"
+    - If you don't have this, look online for a bios extraction tool specific to your model of laptop
+3. Inside the extracted folder there should be a folder like `N40ET46W`
+    - The folder name is specific to my installer, yours will be in a similar format
+4. There will be a file that ends with `.FL1`, this is your bin file
+    1. Make sure to change `UEFITool` to open any file type
+    2. This option is at the bottom right in the open file dialog
+
+# Step 2. Extracting PE32 Body {#Step-2.-Extracting-PE32-Body}
+
+1. Open `UEFITool` click file, open new image file. Navigate to the extract folder, open the `.bin` file mentioned previously.
+2. At the top click Action -> Search.
+    - Switch to the `Text` tab
+3. In the text field paste `Overclocking Lock`
+4. Double click one of the search results that mentions `Setup/PE32`
+5. You should have a `PE32 image section` highlighted
+    1. Right click on it and select `Extract as is`
+    2. Save the file as is
+
+# Step 3. Universal IRFE Extractor {#Step-3.-Universal-IRFE-Extractor}
+
+1. Open IRFE Extractor, click the `..`
+    1. Navigate to the file you saved in the previous step
+        - `Section_PE32_image_Setup.sct`
+    2. Select it and click `Extract`
+    3. Save the text file as is
+        - In the extract folder beside all the bin files
+        - By default the saved files name will be `Section_PE32_image_Setup IFR.txt`
+2. Use a text editor (sublime, notepad++) and open `Section_PE32_image_Setup IFR.txt`
+3. Using the text editors search function look for `Overclocking Lock`
+4. Beside the result there should be text similar to below
+    - `Overclocking ... VarStoreInfo (VarOffset/VarName): 0x789`
+5. Write down the exact numbers/letters of the `offset`
+
+    - In my case `0x789`
+
+# Step 4. Unlocking Voltage Control {#Step-4.-Unlocking-Voltage-Control}
+
+1. Format a USB with a `FAT32` partition
+2. At the root of the USB create a `EFI` folder
+    - Create a 'BOOT' folder inside of `EFI`
+3. Rename `modGRUBShell.efi` to `bootx64.efi`
+    - place it inside of `BOOT`
+4. Set the USB as a boot device
+    - Once you have booted off the USB you should see the GRUB command line
+    - If your laptops screen is high resolution the text may be small
+
+### ⚠️ WARNING
+
+If you enter the incorrect offset you could brick your system. Double check!
+
+5. Enter the following command
+    - "setup_var_3 '`offset` you got in Step 3.5' 0x00"
+    - For me the command looked like
+
+```sh
+setup_var_3 0x789 0x00
+```
+
+6. Once the command completes, check the result code
+    - If it ends in 0x0 than the process worked
+    - A result that ends in 0x8 means that write protection is enabled
+        - There are ways to get around this, like leveraging [CVEs](https://support.lenovo.com/au/en/product_security/LEN-106014) ex `CVE-2023-2290` that allow arbitrary writes
+            - The offset of LenovoFlashDeviceInterface can be found in the text file we made
+        - Here is another guide going over [this](https://github.com/Cr4sh/fwexpl)
+7. Type "halt", unplug the USB and reboot your computer
