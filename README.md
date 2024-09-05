@@ -3,7 +3,7 @@
 - XPS
     - 7590
 - Vostro
-    - 5471 ( https://github.com/Lyceris-chan )
+    - 5471 https://github.com/tadghh/Dell-unlock-undervolting/issues/1
 - Latitude
     - 5491 https://github.com/tadghh/Dell-unlock-undervolting/issues/3 Offset: 0x659
 
