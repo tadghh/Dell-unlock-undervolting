@@ -6,6 +6,8 @@
     - 5471 https://github.com/tadghh/Dell-unlock-undervolting/issues/1
 - Latitude
     - 5491 https://github.com/tadghh/Dell-unlock-undervolting/issues/3 Offset: 0x659
+- Precision 
+	- 5520 [#4](https://github.com/tadghh/Dell-unlock-undervolting/issues/4) Offset: 0x59C 
 
 ### ✔️ Compatibility
 
