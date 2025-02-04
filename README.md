@@ -8,6 +8,8 @@
     - 5491 https://github.com/tadghh/Dell-unlock-undervolting/issues/3 Offset: 0x659
 - Precision 
 	- 5520 [#4](https://github.com/tadghh/Dell-unlock-undervolting/issues/4) Offset: 0x59C 
+- Optiplex
+	- 3060 Micro [#5](https://github.com/tadghh/Dell-unlock-undervolting/issues/5) Offset: 0x65A
 
 ### ✔️ Compatibility
 
