@@ -13,11 +13,18 @@
     - 3060 Micro [#5](https://github.com/tadghh/Dell-unlock-undervolting/issues/5) Offset: 0x65A
 
 ### ✔️ Compatibility
-
 This guide should work with any laptop model that has a K series/unlocked CPU as an optional upgrade.
-The following will work (H, HK, K)
-Untested (T, P, U)
-Doubtful any 12th gen or newer would work
+The following will work:
+- H
+- HK
+- K
+
+These versions are untested but may work:
+- T
+- P
+- U
+
+Doubtful any 12th gen or newer would work due to the CPU architecture changes.
 
 ### 📝 Note
 
