@@ -6,6 +6,7 @@
     - 5471 https://github.com/tadghh/Dell-unlock-undervolting/issues/1
 - Latitude
     - 5491 https://github.com/tadghh/Dell-unlock-undervolting/issues/3 Offset: 0x659
+    - 7300 (BIOS 1.24) Offset: 0x789
 - Precision 
 	- 5520 [#4](https://github.com/tadghh/Dell-unlock-undervolting/issues/4) Offset: 0x59C 
 - Optiplex
