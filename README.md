@@ -1,16 +1,16 @@
 ## Supported Models
 
 - XPS
-    - 7590
+    - 7590 Offset: 0x789
 - Vostro
-    - 5471 https://github.com/tadghh/Dell-unlock-undervolting/issues/1
+    - 5471 [#1](https://github.com/tadghh/Dell-unlock-undervolting/issues/1) Offset: 0x5D6 
 - Latitude
-    - 5491 https://github.com/tadghh/Dell-unlock-undervolting/issues/3 Offset: 0x659
-    - 7300 (BIOS 1.24) Offset: 0x789
+    - 5491 [#3](https://github.com/tadghh/Dell-unlock-undervolting/issues/3) Offset: 0x659
+    - 7300 [@delacor](https://github.com/delacor) (Tested on: BIOS 1.24) Offset: 0x789
 - Precision 
-	- 5520 [#4](https://github.com/tadghh/Dell-unlock-undervolting/issues/4) Offset: 0x59C 
+    - 5520 [#4](https://github.com/tadghh/Dell-unlock-undervolting/issues/4) Offset: 0x59C 
 - Optiplex
-	- 3060 Micro [#5](https://github.com/tadghh/Dell-unlock-undervolting/issues/5) Offset: 0x65A
+    - 3060 Micro [#5](https://github.com/tadghh/Dell-unlock-undervolting/issues/5) Offset: 0x65A
 
 ### ✔️ Compatibility
 
