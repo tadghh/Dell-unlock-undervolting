@@ -2,7 +2,7 @@
 
 - XPS
     - 7590 Offset: 0x789
-    - XPS 13 7390 (non 2 in 1) Bios 1.29, CFG Lock 0x3E, Overclocking Lock 0xDA (to disable: 'setup_var_cv CpuSetup 0x3e 0x01 0x00' and 'setup_var_cv CpuSetup 0xDA 0x01 0x00')
+    - XPS 13 7390 (non 2 in 1), CFG Lock: 0x3E, Overclocking Lock: 0xDA
 - Vostro
     - 5471 [#1](https://github.com/tadghh/Dell-unlock-undervolting/issues/1) Offset: 0x5D6 
 - Latitude
