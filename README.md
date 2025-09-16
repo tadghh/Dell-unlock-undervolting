@@ -8,6 +8,7 @@
 - Latitude
     - 5491 [#3](https://github.com/tadghh/Dell-unlock-undervolting/issues/3) Offset: 0x659
     - 7300 [@delacor](https://github.com/delacor) (Tested on: BIOS 1.24) Offset: 0x789
+    - 7490 [@prifak](https://github.com/tadghh/Dell-unlock-undervolting/issues/10) Offset: 0x5DC
 - Precision 
     - 5520 [#4](https://github.com/tadghh/Dell-unlock-undervolting/issues/4) Offset: 0x59C 
 - Optiplex
