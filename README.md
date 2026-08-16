@@ -12,6 +12,7 @@
 |           | 7490         | [@prifak](https://github.com/tadghh/Dell-unlock-undervolting/issues/10)                   | 0x5DC   |
 | **Precision** | 3630     | [@msprengholz](https://github.com/tadghh/Dell-unlock-undervolting/issues/14)              | 0x65C   |
 |           | 5520         | [@dimasafonis](https://github.com/tadghh/Dell-unlock-undervolting/issues/4)               | 0x59C   |
+|           | 5530         | [@Grenvals](https://github.com/tadghh/Dell-unlock-undervolting/issues/19) CFG Lock: 0x3E - Tested on: BIOS 1.17,1.47   | 0x59C   |
 | **Optiplex** | 3060 Micro | [@RonK-0](https://github.com/tadghh/Dell-unlock-undervolting/issues/5)                    | 0x65A   |
 
 
