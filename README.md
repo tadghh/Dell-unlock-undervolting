@@ -187,7 +187,7 @@ setup_var_3 0x789 0x00
 
 6. Once the command completes, check the result code
     - If it ends in 0x0 than the process worked
-    - A result that ends in 0x8 means that write protection is enabled
+    - A result that ends in 0x8 means that write protection is enabled, "voltage control cant be unlocked" but if youd like a rabbit hole check the sub points     
         - There are ways to get around this, like leveraging [CVEs](https://support.lenovo.com/au/en/product_security/LEN-106014) ex `CVE-2023-2290` that allow arbitrary writes
             - The offset of LenovoFlashDeviceInterface can be found in the text file we made
         - Here is another guide going over [this](https://github.com/Cr4sh/fwexpl)
