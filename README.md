@@ -20,6 +20,8 @@
 | **Optiplex** | 3060 Micro | [@RonK-0](https://github.com/tadghh/Dell-unlock-undervolting/issues/5)                    | 0x65A   |
 | **Alienware** | M15      | [@Syti3](https://github.com/tadghh/Dell-unlock-undervolting/issues/16)                     | 0x78A   |
 
+> [!NOTE]  
+> If you are able to successfully unlock voltage control please make a pull request [here](https://github.com/tadghh/Dell-unlock-undervolting/pulls) with your devices series/model along with the offset. 
 
 ### Compatibility
 
@@ -35,10 +37,6 @@ This guide should work with any laptop model that has a K series/unlocked CPU as
 | U | Untested, may work |
 
 Doubtful any 12th gen or newer would work due to the CPU architecture changes.
-
-> [!NOTE]  
-> If you are able to successfully unlock voltage control please make a pull request [here](https://github.com/tadghh/Dell-unlock-undervolting) adding your devices series/model to this list. 
-
 
 # Dell/Lenovo Unlocking Voltage Control
 
