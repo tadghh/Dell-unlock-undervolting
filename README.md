@@ -1,48 +1,57 @@
-## Known Supported Models
+## Supported Models
 
-| Brand     | Model        | Details                                                                                     | Offset  |
+| Brand     | Model        | Report + Link                                                                               | Offset  |
 |-----------|--------------|---------------------------------------------------------------------------------------------|---------|
 | **XPS**   | 7590         |                                                                                             | 0x789   |
 |           | XPS 13 7390  | CFG Lock: 0x3E                                                        | 0xDA       |
 | **Vostro**| 5471         | [@Lyceris-chan](https://github.com/tadghh/Dell-unlock-undervolting/issues/1)               | 0x5D6   |
-| **Latitude** | 5490       | [@feather-47](https://github.com/tadghh/Dell-unlock-undervolting/issues/13) (Tested on: BIOS 1.41.0) | 0x5DC   |
-|           | 5491         | [@4evrplan](https://github.com/tadghh/Dell-unlock-undervolting/issues/3)                   | 0x659   |
+| **Latitude** | 5290 2-in-1 | [@skulqerX](https://github.com/tadghh/Dell-unlock-undervolting/issues/15)                 |         |
+|           | 5490         | [@feather-47](https://github.com/tadghh/Dell-unlock-undervolting/issues/13) (Tested on: BIOS 1.41.0) | 0x5DC   |
+|           | 5491         | [@4evrplan](https://github.com/tadghh/Dell-unlock-undervolting/issues/3) - [@bcampbell921](https://github.com/tadghh/Dell-unlock-undervolting/issues/22)                  | 0x659   |
+|           | 7280         | [@msprengholz](https://github.com/tadghh/Dell-unlock-undervolting/issues/14) (Untested - same BIOS as 7480) | 0x59C   |
 |           | 7300         | [@delacor](https://github.com/delacor) (Tested on: BIOS 1.24)                               | 0x789   |
+|           | 7380         | [@msprengholz](https://github.com/tadghh/Dell-unlock-undervolting/issues/14) (Untested - same BIOS as 7480) | 0x59C   |
 |           | 7480         | [@msprengholz](https://github.com/tadghh/Dell-unlock-undervolting/issues/14)              | 0x59C   |
 |           | 7490         | [@prifak](https://github.com/tadghh/Dell-unlock-undervolting/issues/10)                   | 0x5DC   |
 | **Precision** | 3630     | [@msprengholz](https://github.com/tadghh/Dell-unlock-undervolting/issues/14)              | 0x65C   |
 |           | 5520         | [@dimasafonis](https://github.com/tadghh/Dell-unlock-undervolting/issues/4)               | 0x59C   |
 |           | 5530         | [@Grenvals](https://github.com/tadghh/Dell-unlock-undervolting/issues/19) CFG Lock: 0x3E - Tested on: BIOS 1.17,1.47   | 0x59C   |
+|           | 7550         | [@ahmedbahgat32004](https://github.com/tadghh/Dell-unlock-undervolting/issues/21)  |         |
 | **Optiplex** | 3060 Micro | [@RonK-0](https://github.com/tadghh/Dell-unlock-undervolting/issues/5)                    | 0x65A   |
+| **Alienware** | M15      | [@Syti3](https://github.com/tadghh/Dell-unlock-undervolting/issues/16)                     | 0x78A   |
 
 
-### ✔️ Compatibility
+### Compatibility
+
 This guide should work with any laptop model that has a K series/unlocked CPU as an optional upgrade.
-The following will work:
-- H
-- HK
-- K
 
-These versions are untested but may work:
-- T
-- P
-- U
+| CPU Suffix | Status |
+|---|---|
+| H | Works |
+| HK | Works |
+| K | Works |
+| T | Untested, may work |
+| P | Untested, may work |
+| U | Untested, may work |
 
 Doubtful any 12th gen or newer would work due to the CPU architecture changes.
 
-### 📝 Note
+> [!NOTE]  
+> If you are able to successfully unlock voltage control please make a pull request [here](https://github.com/tadghh/Dell-unlock-undervolting) adding your devices series/model to this list. 
 
-If you are able to successfully unlock voltage control please make a pull request [here](https://github.com/tadghh/Dell-unlock-undervolting) adding your devices series/model to this list. 
 
 # Dell/Lenovo Unlocking Voltage Control
 
 This guide walks through the process of re-enabling voltage control on Dell/Lenovo laptops. Voltage control was 'removed' to prevent the plundervolt vulnerability (CVE-2019-11157). Even though Dell took way voltage control from the user, the exploit can still be taken advantage of because the variable controlling it was not made read only. This guide goes over rewriting the variable to restore the ability to undervolt/overvolt your CPU.
 
-### ⚠️ WARNING
+> [!WARNING]
+> Modifying the incorrect EFI offset could brick your computer. Please do some research and make sure you have recovery methods.
 
-Modifying the incorrect EFI offset could brick your computer. Please do some research and make sure you have recovery methods.
+---
 
-# Required Tools 
+# Setup 
+
+## Required Tools 
 
 There is an automated script below...
 
@@ -56,19 +65,10 @@ There is an automated script below...
 - modGrubShell EFI [Link](https://github.com/datasone/grub-mod-setup_var/releases/tag/1.1)
 - USB with at least 1GB of storage
 
----
+## Auto Setup
 
-# Setup 
-
-Download links are alongside the `required items` list. A PowerShell script has been included to setup everything.
-
-### ❗ IMPORTANT
-
-The below commands require PowerShell 7, otherwise you can manually download the files.
-
-## ⚙️ Auto Setup
-
-The following script will setup everything for you, just execute it in PowerShell
+> [!IMPORTANT]
+> The below script requires PowerShell 7
 
 ```powershell
 mkdir C:\Users\$Env:UserName\Downloads\undervolting-tools;
@@ -90,24 +90,26 @@ curl -L https://github.com/platomav/BIOSUtilities/archive/refs/heads/main.zip --
 winget install -e --id Microsoft.VCRedist.2013.x86;
 ```
 
-## 🐍 Python Setup
+## Python Setup
 
 - Install Python 3.12 from the official [website](https://www.python.org/downloads/release/python-3124/)
 
-## 🔧 Acquiring your laptops BIOS
+## Acquiring your laptops BIOS
 
 - Usually located on the support page along with drivers
     - Look for category labeled BIOS or Firmware
     - Example https://www.dell.com/support/home/en-ca/product-support/product/xps-15-7590-laptop/drivers
 - Most likely an executable file, rarely it could be in the format of an image/rom
+---
+# Unlock Guide
 
-# Step 1. Extracting the BIOS {#Step-1.-Extracting-the-BIOS }
+## Step 1. Extracting the BIOS
 
-1. Create a folder in your CWD called `bios_extract_dir`
+1. Create a folder in your CWD (current working directory - where the terminal is open) called `bios_extract_dir`
     - Move the BIOS update/installer you downloaded into this folder
-2. Using PowerShell cd into the location containing `BIOSUtilities`
+2. Using PowerShell `cd` into the location containing `BIOSUtilities`
     - Execute the following command
-    - If the command fails `Error: This is not a supported input!` go to Step 1. Alt
+    - If the command fails `Error: This is not a supported input!` read the below section
 
 ```powershell
 ## using ../ as we are inside the folder and the extract dir should have been created in the parent folder
@@ -119,7 +121,10 @@ python .\dell_PFS_Extract.py -i ../bios_extract_dir
 3. An `extract` folder will be created in the input (-i) folder
 4. You will find a bin file in one of the folders, its filename will contain `System BIOS`
 
-# Step 1. Alt Extracting the BIOS 
+### Alt Extracting the BIOS 
+
+> [!NOTE]
+> This step is optional. Only follow it if the extraction in Step 1 failed.
 
 1. Open the installer, accept the TOS
 2. Select "Extract Only"
@@ -130,7 +135,7 @@ python .\dell_PFS_Extract.py -i ../bios_extract_dir
     1. Make sure to change `UEFITool` to open any file type
     2. This option is at the bottom right in the open file dialog
 
-# Step 2. Extracting PE32 Body 
+## Step 2. Extracting PE32 Body 
 
 1. Open `UEFITool` click file, open new image file. Navigate to the extract folder, open the `.bin` file mentioned previously.
 2. At the top click Action -> Search.
@@ -141,7 +146,7 @@ python .\dell_PFS_Extract.py -i ../bios_extract_dir
     1. Right click on it and select `Extract as is`
     2. Save the file as is
 
-# Step 3. Universal IRFE Extractor 
+## Step 3. Universal IRFE Extractor 
 
 1. Open IRFE Extractor, click the `..`
     1. Navigate to the file you saved in the previous step
@@ -158,7 +163,7 @@ python .\dell_PFS_Extract.py -i ../bios_extract_dir
 
     - In my case `0x789`
 
-# Step 4. Unlocking Voltage Control
+## Step 4. Unlocking Voltage Control
 
 1. Format a USB with a `FAT32` partition
 2. At the root of the USB create a `EFI` folder
@@ -169,9 +174,8 @@ python .\dell_PFS_Extract.py -i ../bios_extract_dir
     - Once you have booted off the USB you should see the GRUB command line
     - If your laptops screen is high resolution the text may be small
 
-### ⚠️ WARNING
-
-If you enter the incorrect offset you could brick your system. Double check!
+> [!CAUTION]
+> If you enter the incorrect offset you could brick your system. Double check!
 
 5. Enter the following command
     - "setup_var_3 '`offset` you got in Step 3.5' 0x00"
