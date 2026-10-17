@@ -3,20 +3,21 @@
 | Brand     | Model        | Report + Link                                                                               | Offset  |
 |-----------|--------------|---------------------------------------------------------------------------------------------|---------|
 | **XPS**   | 7590         |                                                                                             | 0x789   |
-|           | XPS 13 7390  | CFG Lock: 0x3E                                                        | 0xDA       |
-| **Vostro**| 5471         | [@Lyceris-chan](https://github.com/tadghh/Dell-unlock-undervolting/issues/1)               | 0x5D6   |
+|           | 7390         | CFG Lock: 0x3E                                                                              | 0xDA    |
+|           | 9730         | [@toverux](https://github.com/tadghh/Dell-unlock-undervolting/issues/24) ⚠ AI Assisted      | 0x1CD   |
+| **Vostro**| 5471         | [@Lyceris-chan](https://github.com/tadghh/Dell-unlock-undervolting/issues/1)                | 0x5D6   |
 | **Latitude** | 5290 2-in-1 | [@skulqerX](https://github.com/tadghh/Dell-unlock-undervolting/issues/15)                 |         |
 |           | 5490         | [@feather-47](https://github.com/tadghh/Dell-unlock-undervolting/issues/13) (Tested on: BIOS 1.41.0) | 0x5DC   |
 |           | 5491         | [@4evrplan](https://github.com/tadghh/Dell-unlock-undervolting/issues/3) - [@bcampbell921](https://github.com/tadghh/Dell-unlock-undervolting/issues/22)                  | 0x659   |
 |           | 7280         | [@msprengholz](https://github.com/tadghh/Dell-unlock-undervolting/issues/14) (Untested - same BIOS as 7480) | 0x59C   |
 |           | 7300         | [@delacor](https://github.com/delacor) (Tested on: BIOS 1.24)                               | 0x789   |
 |           | 7380         | [@msprengholz](https://github.com/tadghh/Dell-unlock-undervolting/issues/14) (Untested - same BIOS as 7480) | 0x59C   |
-|           | 7480         | [@msprengholz](https://github.com/tadghh/Dell-unlock-undervolting/issues/14)              | 0x59C   |
-|           | 7490         | [@prifak](https://github.com/tadghh/Dell-unlock-undervolting/issues/10)                   | 0x5DC   |
-| **Precision** | 3630     | [@msprengholz](https://github.com/tadghh/Dell-unlock-undervolting/issues/14)              | 0x65C   |
-|           | 5520         | [@dimasafonis](https://github.com/tadghh/Dell-unlock-undervolting/issues/4)               | 0x59C   |
+|           | 7480         | [@msprengholz](https://github.com/tadghh/Dell-unlock-undervolting/issues/14)                | 0x59C   |
+|           | 7490         | [@prifak](https://github.com/tadghh/Dell-unlock-undervolting/issues/10)                     | 0x5DC   |
+| **Precision** | 3630     | [@msprengholz](https://github.com/tadghh/Dell-unlock-undervolting/issues/14)                | 0x65C   |
+|           | 5520         | [@dimasafonis](https://github.com/tadghh/Dell-unlock-undervolting/issues/4)                 | 0x59C   |
 |           | 5530         | [@Grenvals](https://github.com/tadghh/Dell-unlock-undervolting/issues/19) CFG Lock: 0x3E - Tested on: BIOS 1.17,1.47   | 0x59C   |
-|           | 7550         | [@ahmedbahgat32004](https://github.com/tadghh/Dell-unlock-undervolting/issues/21)  |         |
+|           | 7550         | [@ahmedbahgat32004](https://github.com/tadghh/Dell-unlock-undervolting/issues/21)          |         |
 | **Optiplex** | 3060 Micro | [@RonK-0](https://github.com/tadghh/Dell-unlock-undervolting/issues/5)                    | 0x65A   |
 | **Alienware** | M15      | [@Syti3](https://github.com/tadghh/Dell-unlock-undervolting/issues/16)                     | 0x78A   |
 
@@ -37,6 +38,8 @@ This guide should work with any laptop model that has a K series/unlocked CPU as
 | U | Untested, may work |
 
 Doubtful any 12th gen or newer would work due to the CPU architecture changes.
+> [!NOTE]
+> One report of a 13th gen CPU working - Users report was made by AI, take it with a grain of salt
 
 # Dell/Lenovo Unlocking Voltage Control
 
