@@ -40,7 +40,7 @@ This guide should work with any laptop model that has a K series/unlocked CPU as
 
 Doubtful any 12th gen or newer would work due to the CPU architecture changes.
 > [!NOTE]
-> One report of a 13th gen CPU working - Users report was made by AI, take it with a grain of salt
+> One report of a 13th gen CPU working - User's [report](https://github.com/tadghh/Dell-unlock-undervolting/issues/23) was made by AI, take it with a grain of salt
 
 # Dell/Lenovo Unlocking Voltage Control
 
