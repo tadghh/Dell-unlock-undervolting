@@ -9,6 +9,7 @@
 | **Latitude** | 5290 2-in-1 | [@skulqerX](https://github.com/tadghh/Dell-unlock-undervolting/issues/15)                 |         |
 |           | 5490         | [@feather-47](https://github.com/tadghh/Dell-unlock-undervolting/issues/13) (Tested on: BIOS 1.41.0) | 0x5DC   |
 |           | 5491         | [@4evrplan](https://github.com/tadghh/Dell-unlock-undervolting/issues/3) - [@bcampbell921](https://github.com/tadghh/Dell-unlock-undervolting/issues/22)                  | 0x659   |
+|           | 7200         | [@LMFinish](https://github.com/tadghh/Dell-unlock-undervolting/issues/23)                   | 0x789   |
 |           | 7280         | [@msprengholz](https://github.com/tadghh/Dell-unlock-undervolting/issues/14) (Untested - same BIOS as 7480) | 0x59C   |
 |           | 7300         | [@delacor](https://github.com/delacor) (Tested on: BIOS 1.24)                               | 0x789   |
 |           | 7380         | [@msprengholz](https://github.com/tadghh/Dell-unlock-undervolting/issues/14) (Untested - same BIOS as 7480) | 0x59C   |
